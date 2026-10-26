@@ -32,7 +32,7 @@ export default function PhotoCard({ photo, index, isFavourite, onToggle }) {
             onClick={() => onToggle(photo.id)}
             aria-label={`${isFavourite ? 'Remove' : 'Add'} photo ${photo.id} by ${photo.author} ${isFavourite ? 'from' : 'to'} favourites`}
             aria-pressed={isFavourite}
-            className={`absolute top-3 right-3 flex size-11 cursor-pointer items-center justify-center rounded-full shadow-sm backdrop-blur-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isFavourite ? 'bg-accent text-white hover:bg-[#8f3d28]' : 'bg-white/90 text-ink hover:bg-white hover:text-accent'}`}
+            className={`absolute top-3 right-3 flex size-11 cursor-pointer items-center justify-center rounded-full shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isFavourite ? 'bg-accent text-white hover:bg-[#8f3d28]' : 'bg-white/90 text-ink hover:bg-white hover:text-accent'}`}
           >
             <HeartIcon className="size-[19px]" filled={isFavourite} />
           </button>
