@@ -31,7 +31,9 @@ export default function useFetchPhotos() {
         if (active) {
           setError(error.name === 'AbortError'
             ? 'The photos took too long to arrive. Check your connection and try again.'
-            : 'We couldn’t load the photos. Check your connection and try again.')
+            : error instanceof TypeError
+              ? 'We couldn’t load the photos. Check your connection and try again.'
+              : error.message)
         }
       } finally {
         clearTimeout(timeout)
