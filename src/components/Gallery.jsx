@@ -47,16 +47,16 @@ export default function Gallery() {
         <div className="mx-auto max-w-2xl">
           <p className="mb-5 flex items-center justify-center gap-3 text-[9px] font-medium tracking-[0.19em] text-accent uppercase sm:text-[10px] sm:tracking-[0.25em]">
             <span aria-hidden="true" className="h-px w-6 bg-gold/60" />
-            A collection to fall in love with
+            Photography
             <span aria-hidden="true" className="h-px w-6 bg-gold/60" />
           </p>
           <h1 id="gallery-title" className="font-display text-[clamp(2.7rem,5.6vw,5.2rem)] leading-[1.08] tracking-[-0.035em]">
-            Some moments<br />
-            <span className="text-accent italic">stay with you.</span>
+            The photo<br />
+            <span className="text-accent italic">collection.</span>
           </h1>
         </div>
         <div className="mx-auto mt-5 max-w-sm">
-          <p className="text-sm leading-relaxed text-muted sm:text-[15px]">A collection of everyday beauty, held a little closer.<br className="hidden sm:block" /> Keep the frames that feel like you.</p>
+          <p className="text-sm leading-relaxed text-muted sm:text-[15px]">Browse photos by author and save your favourites.</p>
           <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-gold/25 bg-paper/80 px-4 py-2.5">
             <span className="text-accent">
               <HeartIcon className="size-3.5" filled={favourites.length > 0} />
@@ -70,12 +70,13 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="pt-7 pb-16 sm:pt-8 sm:pb-20" aria-labelledby="collection-title" aria-busy={loading}>
-        <div className="mb-7 flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+      <section className="relative isolate -mx-5 bg-[#f3e7e2] px-5 pt-7 pb-16 sm:-mx-8 sm:px-8 sm:pt-8 sm:pb-20 lg:-mx-14 lg:px-14 xl:-mx-16 xl:px-16" aria-labelledby="collection-title" aria-busy={loading}>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[url('/floral-pattern.svg')] bg-size-[480px_480px] opacity-65" />
+        <div className="mb-7 flex flex-col justify-between gap-5 rounded-lg border border-white/80 bg-paper/95 p-4 sm:flex-row sm:items-center sm:px-5">
           <div className="flex items-baseline gap-3">
             <h2 id="collection-title" className="font-display text-[28px] tracking-[-0.02em]">The collection</h2>
             <p className="text-xs text-muted" role="status" aria-live="polite" aria-atomic="true">
-              {loading ? 'Gathering frames…' : error ? 'Unavailable' : `${filteredPhotos.length} ${filteredPhotos.length === 1 ? 'photograph' : 'photographs'}`}
+              {loading ? 'Loading…' : error ? 'Unavailable' : `${filteredPhotos.length} ${filteredPhotos.length === 1 ? 'photograph' : 'photographs'}`}
             </p>
           </div>
           <SearchInput value={search} onChange={handleSearch} onClear={clearSearch} />
@@ -86,22 +87,21 @@ export default function Gallery() {
         )}
 
         {loading ? (
-          <div role="status" className="flex min-h-80 flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-line">
+          <div role="status" className="flex min-h-80 flex-col items-center justify-center gap-4 rounded-lg border border-line bg-paper/95">
             <span className="size-7 animate-spin rounded-full border-2 border-line border-t-accent motion-reduce:animate-none" aria-hidden="true" />
-            <p className="font-display text-2xl">Good things take a moment.</p>
-            <p className="text-sm text-muted">Finding a little perspective…</p>
+            <p className="font-display text-2xl">Loading photos…</p>
           </div>
         ) : error ? (
-          <div role="alert" className="flex min-h-80 flex-col items-center justify-center rounded-lg border border-dashed border-line px-6 text-center">
+          <div role="alert" className="flex min-h-80 flex-col items-center justify-center rounded-lg border border-line bg-paper/95 px-6 text-center">
             <FrameIcon className="mb-5 size-9 text-accent" />
-            <h3 className="font-display text-3xl">A moment out of focus.</h3>
+            <h3 className="font-display text-3xl">Couldn’t load photos.</h3>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">{error}</p>
             <button type="button" onClick={() => window.location.reload()} className="mt-6 cursor-pointer rounded-md bg-ink px-5 py-3 text-sm text-paper transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Try again</button>
           </div>
         ) : filteredPhotos.length === 0 ? (
-          <div className="flex min-h-80 flex-col items-center justify-center rounded-lg border border-dashed border-line px-6 text-center">
+          <div className="flex min-h-80 flex-col items-center justify-center rounded-lg border border-line bg-paper/95 px-6 text-center">
             <SearchIcon className="mb-5 size-8 text-accent" />
-            <h3 className="font-display text-3xl">{search.trim() ? 'No frames found.' : 'Nothing here just yet.'}</h3>
+            <h3 className="font-display text-3xl">{search.trim() ? 'No photos found.' : 'No photos available.'}</h3>
             <p className="mt-3 max-w-md break-words text-sm leading-relaxed text-muted">{search.trim() ? `No photographers match “${search.trim()}”. Try another name.` : 'The collection is empty. Please check back in a little while.'}</p>
             {search && <button type="button" onClick={clearSearch} className="mt-5 cursor-pointer text-sm font-medium text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Clear search</button>}
           </div>
@@ -113,13 +113,6 @@ export default function Gallery() {
           </ul>
         )}
 
-        {!loading && !error && filteredPhotos.length > 0 && (
-          <div className="mt-14 flex items-center justify-center gap-4 text-muted">
-            <span className="h-px w-10 bg-line" />
-            <span className="font-display text-base text-accent italic">Keep a little of what you love.</span>
-            <span className="h-px w-10 bg-line" />
-          </div>
-        )}
       </section>
     </>
   )

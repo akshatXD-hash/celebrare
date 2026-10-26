@@ -31,7 +31,7 @@ it('returns loading, photos and error from the custom hook', async () => {
 it('shows the loading state while a request is pending', () => {
   fetch.mockReturnValue(new Promise(() => {}))
   render(<Gallery />)
-  expect(screen.getByText('Good things take a moment.')).toBeTruthy()
+  expect(screen.getByText('Loading photos…')).toBeTruthy()
 })
 
 it('filters by author without another API request, and clears an empty result', async () => {
@@ -42,7 +42,7 @@ it('filters by author without another API request, and clears an empty result', 
   expect(screen.getAllByRole('figure')).toHaveLength(2)
   expect(screen.queryByText('Alejandro Escamilla')).toBeNull()
   fireEvent.change(search, { target: { value: 'no-such-author' } })
-  expect(screen.getByRole('heading', { name: 'No frames found.' })).toBeTruthy()
+  expect(screen.getByRole('heading', { name: 'No photos found.' })).toBeTruthy()
   fireEvent.click(screen.getAllByRole('button', { name: 'Clear search' })[0])
   expect(screen.getAllByRole('figure')).toHaveLength(3)
   expect(document.activeElement).toBe(search)

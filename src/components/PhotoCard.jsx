@@ -6,9 +6,9 @@ export default function PhotoCard({ photo, index, isFavourite, onToggle }) {
 
   return (
     <li className="group min-w-0">
-      <figure>
-        <div className="relative overflow-hidden rounded-t-[3rem] rounded-b-md border border-line bg-white/70 p-[7px] shadow-sm transition-shadow duration-300 hover:shadow-md">
-          <div className="aspect-[4/3] overflow-hidden rounded-t-[2.6rem] rounded-b-[2px] bg-line/40">
+      <figure className="rounded-t-[3rem] rounded-b-lg border border-line bg-paper p-2 shadow-sm transition-shadow duration-300 hover:shadow-md">
+        <div className="relative overflow-hidden rounded-t-[2.5rem] rounded-b-sm">
+          <div className="aspect-[4/3] overflow-hidden bg-line/40">
             {imageFailed ? (
               <div className="flex h-full flex-col items-center justify-center gap-3 px-4 text-muted">
                 <FrameIcon className="size-8" />
@@ -37,9 +37,9 @@ export default function PhotoCard({ photo, index, isFavourite, onToggle }) {
             <HeartIcon className="size-[19px]" filled={isFavourite} />
           </button>
         </div>
-        <figcaption className="flex items-center justify-between gap-3 px-0.5 pt-4">
+        <figcaption className="flex items-center justify-between gap-3 px-2 py-4">
           <div className="min-w-0">
-            <p className="text-[10px] font-medium tracking-[0.16em] text-muted uppercase">Through the lens of</p>
+            <p className="text-[10px] font-medium tracking-[0.16em] text-muted uppercase">Photographer</p>
             <p className="mt-1 truncate text-sm font-medium" title={photo.author}>{photo.author}</p>
           </div>
           <span className="font-display text-xl text-muted/65" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>

@@ -16,7 +16,7 @@ const SearchInput = memo(function SearchInput({ value, onChange, onClear }) {
         spellCheck="false"
         value={value}
         onChange={onChange}
-        placeholder="Find a photographer…"
+        placeholder="Search by author…"
         className="h-full min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted"
       />
       {value && (
