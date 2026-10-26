@@ -57,14 +57,13 @@ export default function Gallery() {
         </div>
         <div className="mx-auto mt-5 max-w-sm">
           <p className="text-sm leading-relaxed text-muted sm:text-[15px]">Browse photos by author and save your favourites.</p>
-          <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-gold/25 bg-paper/80 px-4 py-2.5">
-            <span className="text-accent">
-              <HeartIcon className="size-3.5" filled={favourites.length > 0} />
+          <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-accent/20 bg-paper px-6 py-3 shadow-sm">
+            <span className="flex size-10 items-center justify-center rounded-full bg-accent/10 text-accent">
+              <HeartIcon className="size-5" filled={favourites.length > 0} />
             </span>
-            <p className="text-[11px] text-muted" aria-live="polite" aria-atomic="true">
-              <span className="font-semibold text-ink">{favourites.length} {favourites.length === 1 ? 'favourite' : 'favourites'}</span>
-              <span className="mx-2 text-line">/</span>
-              {storageError ? 'saved for this visit' : 'kept in this browser'}
+            <p className="text-base font-medium text-ink" aria-live="polite" aria-atomic="true">
+              <span className="mr-1.5 font-display text-2xl text-accent">{favourites.length}</span>
+              {favourites.length === 1 ? 'favourite' : 'favourites'}
             </p>
           </div>
         </div>
