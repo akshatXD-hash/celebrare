@@ -39,24 +39,29 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="relative grid gap-8 border-b border-line pt-10 pb-11 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-16 md:pt-14 md:pb-14" aria-labelledby="gallery-title">
-        <div>
-          <p className="mb-5 flex items-center gap-2.5 text-[10px] font-semibold tracking-[0.2em] text-muted uppercase sm:text-[11px]">
-            <span className="size-1.5 rounded-full bg-accent" />
-            A photo journal of the everyday
+      <section className="relative isolate overflow-hidden border-b border-line px-3 pt-14 pb-11 text-center sm:pt-16 sm:pb-14" aria-labelledby="gallery-title">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,#f4e3dc_0%,transparent_70%)] opacity-50" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-7 top-6 bottom-[-1px] -z-10 rounded-t-[50%] border border-gold/25 sm:inset-x-[18%]" />
+        <img src="./botanical-spray.svg" alt="" aria-hidden="true" className="pointer-events-none absolute -top-2 -left-20 -z-10 w-44 -rotate-12 opacity-45 sm:top-4 sm:-left-12 sm:w-64 sm:opacity-70 lg:left-0 lg:w-72 xl:left-8 xl:w-80" />
+        <img src="./botanical-spray.svg" alt="" aria-hidden="true" className="pointer-events-none absolute -right-20 -bottom-8 -z-10 w-44 -scale-x-100 -rotate-12 opacity-45 sm:top-4 sm:-right-12 sm:bottom-auto sm:w-64 sm:opacity-70 lg:right-0 lg:w-72 xl:right-8 xl:w-80" />
+        <div className="mx-auto max-w-2xl">
+          <p className="mb-5 flex items-center justify-center gap-3 text-[9px] font-medium tracking-[0.19em] text-accent uppercase sm:text-[10px] sm:tracking-[0.25em]">
+            <span aria-hidden="true" className="h-px w-6 bg-gold/60" />
+            A collection to fall in love with
+            <span aria-hidden="true" className="h-px w-6 bg-gold/60" />
           </p>
-          <h1 id="gallery-title" className="font-display text-[clamp(3.5rem,6.5vw,6.2rem)] leading-[1.02] tracking-[-0.035em]">
-            Life, in<br />
-            <span className="text-accent italic">little frames.</span>
+          <h1 id="gallery-title" className="font-display text-[clamp(2.7rem,5.6vw,5.2rem)] leading-[1.08] tracking-[-0.035em]">
+            Some moments<br />
+            <span className="text-accent italic">stay with you.</span>
           </h1>
         </div>
-        <div className="max-w-sm md:justify-self-end md:pb-1">
-          <p className="text-[15px] leading-relaxed text-muted sm:text-base">The places we pass. The details we miss.<br className="hidden sm:block" /> A few reasons to pause and look a little closer.</p>
-          <div className="mt-6 flex items-center gap-3">
-            <span className="flex size-9 items-center justify-center rounded-full border border-accent/20 text-accent">
-              <HeartIcon className="size-4" filled={favourites.length > 0} />
+        <div className="mx-auto mt-5 max-w-sm">
+          <p className="text-sm leading-relaxed text-muted sm:text-[15px]">A collection of everyday beauty, held a little closer.<br className="hidden sm:block" /> Keep the frames that feel like you.</p>
+          <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-gold/25 bg-paper/80 px-4 py-2.5">
+            <span className="text-accent">
+              <HeartIcon className="size-3.5" filled={favourites.length > 0} />
             </span>
-            <p className="text-xs text-muted" aria-live="polite" aria-atomic="true">
+            <p className="text-[11px] text-muted" aria-live="polite" aria-atomic="true">
               <span className="font-semibold text-ink">{favourites.length} {favourites.length === 1 ? 'favourite' : 'favourites'}</span>
               <span className="mx-2 text-line">/</span>
               {storageError ? 'saved for this visit' : 'kept in this browser'}
@@ -111,7 +116,7 @@ export default function Gallery() {
         {!loading && !error && filteredPhotos.length > 0 && (
           <div className="mt-14 flex items-center justify-center gap-4 text-muted">
             <span className="h-px w-10 bg-line" />
-            <span className="text-[10px] tracking-[0.16em] uppercase">A little pause looks good on you</span>
+            <span className="font-display text-base text-accent italic">Keep a little of what you love.</span>
             <span className="h-px w-10 bg-line" />
           </div>
         )}

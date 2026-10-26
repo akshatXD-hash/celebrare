@@ -9,11 +9,11 @@ export default function App() {
         <div className="flex items-center gap-3">
           <FrameIcon className="size-7 text-accent" />
           <span className="font-display text-[38px] leading-none tracking-[-0.06em]">still.</span>
-          <span className="ml-3 hidden border-l border-line pl-5 text-[11px] text-muted sm:block">a little space to look closer</span>
+          <span className="ml-3 hidden border-l border-line pl-5 text-[11px] text-muted sm:block">for the moments you love</span>
         </div>
         <p className="flex items-center gap-2.5 text-[9px] font-medium tracking-[0.14em] text-muted uppercase sm:text-[10px]">
-          <span className="size-1.5 rounded-full bg-[#78816b]" />
-          A fresh perspective
+          <span className="size-1.5 rotate-45 bg-gold" />
+          Collected with love
         </p>
       </header>
       <main id="main" tabIndex={-1} className="outline-none">
@@ -22,7 +22,7 @@ export default function App() {
       <footer className="flex flex-col gap-4 border-t border-line py-7 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <FrameIcon className="size-4 text-accent" />
-          <p>Made for the beauty in between.</p>
+          <p>A little beauty. A little love. Yours to keep.</p>
         </div>
         <p>Photography from <a href="https://picsum.photos" target="_blank" rel="noreferrer" className="underline decoration-line underline-offset-4 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Lorem Picsum <span aria-hidden="true">↗</span></a></p>
       </footer>

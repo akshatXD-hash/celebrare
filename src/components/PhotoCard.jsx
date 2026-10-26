@@ -7,8 +7,8 @@ export default function PhotoCard({ photo, index, isFavourite, onToggle }) {
   return (
     <li className="group min-w-0">
       <figure>
-        <div className="relative overflow-hidden rounded-lg border border-ink/5 bg-[#e9e7e0] p-[5px] shadow-sm transition-shadow duration-300 hover:shadow-md">
-          <div className="aspect-[4/3] overflow-hidden rounded-[4px]">
+        <div className="relative overflow-hidden rounded-t-[3rem] rounded-b-md border border-line bg-white/70 p-[7px] shadow-sm transition-shadow duration-300 hover:shadow-md">
+          <div className="aspect-[4/3] overflow-hidden rounded-t-[2.6rem] rounded-b-[2px] bg-line/40">
             {imageFailed ? (
               <div className="flex h-full flex-col items-center justify-center gap-3 px-4 text-muted">
                 <FrameIcon className="size-8" />
@@ -32,7 +32,7 @@ export default function PhotoCard({ photo, index, isFavourite, onToggle }) {
             onClick={() => onToggle(photo.id)}
             aria-label={`${isFavourite ? 'Remove' : 'Add'} photo ${photo.id} by ${photo.author} ${isFavourite ? 'from' : 'to'} favourites`}
             aria-pressed={isFavourite}
-            className={`absolute top-3 right-3 flex size-11 cursor-pointer items-center justify-center rounded-full shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isFavourite ? 'bg-accent text-white hover:bg-[#8f3d28]' : 'bg-white/90 text-ink hover:bg-white hover:text-accent'}`}
+            className={`absolute top-4 right-4 flex size-11 cursor-pointer items-center justify-center rounded-full shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isFavourite ? 'bg-accent text-white hover:bg-[#7c4753]' : 'bg-paper/95 text-accent hover:bg-white hover:text-ink'}`}
           >
             <HeartIcon className="size-[19px]" filled={isFavourite} />
           </button>
